@@ -1,0 +1,21 @@
+name: HubHaven
+version: '1.0-SNAPSHOT'
+main: com.github._1mag1n33dev.HubHaven.HubHaven
+api-version: '1.8'
+load: POSTWORLD
+authors: [ 1mag1n33dev ]
+commands:
+  hub:
+    description: Makes you got back to the hub
+    usage: /hub
+  hubhaven:
+    description: Main command for HubHaven
+    usage: /hubhaven <subcommand>
+
+permissions:
+  hubhaven.use:
+    description: Allows regular players to use HubHaven commands
+    default: true
+  hubhaven.admin:
+    description: Allows admins to use admin HubHaven commands
+    default: op
