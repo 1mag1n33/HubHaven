@@ -1,0 +1,35 @@
+Commands:
+
+Events:
+
+
+General:
+1. Welcome Messages
+Show a welcome message or title to players when they join the hub.
+
+2. Scoreboard
+Display player information, server stats, or custom messages on a scoreboard.
+
+3. Hub Gadgets
+Add fun gadgets or items that players can use in the hub, like launch pads or particle trails.
+
+4. Custom Join/Leave Items
+Give players specific items when they join the hub. These items could be used for navigation or fun.
+
+5. Parkour
+Create a simple parkour course in the hub with checkpoints and rewards.
+
+6. Mini Games
+Add small mini-games that players can participate in while waiting in the hub.
+
+7. NPCs
+Use NPCs for various purposes like teleportation to different game modes, providing information, or quests.
+
+8. Announcements
+Periodic announcements to inform players about events, updates, or server news.
+
+9. Server Selector GUI
+Create a GUI for players to select different game modes or servers.
+
+10. Daily Rewards
+Offer daily rewards for players who log in to the hub each day.

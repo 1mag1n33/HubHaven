@@ -1,8 +1,8 @@
-package com.github._1mag1n33dev.HubHaven.Utils.commands;
+package com.github._1mag1n33dev.HubHaven.Commands;
 
-import com.github._1mag1n33dev.HubHaven.Commands.HubCommand;
-import com.github._1mag1n33dev.HubHaven.Commands.SetHubCommand;
 import com.github._1mag1n33dev.HubHaven.HubHaven;
+import com.github._1mag1n33dev.HubHaven.Utils.commands.CommandType;
+import com.github._1mag1n33dev.HubHaven.Utils.commands.SubCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,6 +20,9 @@ public class CommandManager implements CommandExecutor {
 
         registerCommand("hub", new HubCommand(plugin));
         registerCommand("sethub", new SetHubCommand());
+        registerCommand("clearhub", new ClearHubCommand());
+
+        registerCommand("vanish", new VanishCommand());
 
     }
 

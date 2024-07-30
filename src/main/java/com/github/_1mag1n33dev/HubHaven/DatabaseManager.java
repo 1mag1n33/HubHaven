@@ -95,4 +95,13 @@ public class DatabaseManager {
         }
         return null;
     }
+
+    public void clearHubLocation() {
+        try (Statement stmt = connection.createStatement()) {
+            String sql = "DELETE FROM hub_location";
+            stmt.executeUpdate(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

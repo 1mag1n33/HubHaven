@@ -1,2 +1,5 @@
-#sssssssssssssssssssssssssssssssssssssssss
-1234:
+Navigator:
+  material: COMPASS
+  display-name: "&bNavigator"
+  lore:
+    - "&7Use this compass to navigate"

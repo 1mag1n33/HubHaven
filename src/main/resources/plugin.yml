@@ -6,7 +6,7 @@ load: POSTWORLD
 authors: [ 1mag1n33dev ]
 commands:
   hub:
-    description: Makes you got back to the hub
+    description: Makes you go back to the hub
     usage: /hub
   hubhaven:
     description: Main command for HubHaven
