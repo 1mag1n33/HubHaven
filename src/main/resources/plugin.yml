@@ -11,6 +11,7 @@ commands:
   hubhaven:
     description: Main command for HubHaven
     usage: /hubhaven <subcommand>
+    aliases: [hh]
 
 permissions:
   hubhaven.use:
@@ -18,4 +19,7 @@ permissions:
     default: true
   hubhaven.admin:
     description: Allows admins to use admin HubHaven commands
+    default: op
+  hubhaven.developer:
+    description: Allows admins to debug certain things in the plugin
     default: op

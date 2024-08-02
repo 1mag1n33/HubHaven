@@ -1,5 +1,7 @@
 package com.github._1mag1n33dev.HubHaven.Commands;
 
+import com.github._1mag1n33dev.HubHaven.Commands.Debug.getNbt;
+import com.github._1mag1n33dev.HubHaven.Commands.npc.SpawnNpcCommand;
 import com.github._1mag1n33dev.HubHaven.HubHaven;
 import com.github._1mag1n33dev.HubHaven.Utils.commands.CommandType;
 import com.github._1mag1n33dev.HubHaven.Utils.commands.SubCommand;
@@ -24,6 +26,11 @@ public class CommandManager implements CommandExecutor {
 
         registerCommand("vanish", new VanishCommand());
 
+        // Npc
+        registerCommand("spawnnpc", new SpawnNpcCommand());
+
+        // Development
+        registerCommand("getnbt", new getNbt());
     }
 
     private void registerCommand(String name, SubCommand command) {
@@ -53,6 +60,9 @@ public class CommandManager implements CommandExecutor {
             sender.sendMessage("You do not have permission to use this command.");
             return true;
         } else if (type == CommandType.ADMIN && !sender.hasPermission("hubhaven.admin")) {
+            sender.sendMessage("You do not have permission to use this command.");
+            return true;
+        } else if (type == CommandType.DEVELOPER && !sender.hasPermission("hubhaven.developer")) {
             sender.sendMessage("You do not have permission to use this command.");
             return true;
         }

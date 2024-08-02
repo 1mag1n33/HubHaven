@@ -1,5 +1,43 @@
 Navigator:
-  material: COMPASS
-  display-name: "&bNavigator"
-  lore:
-    - "&7Use this compass to navigate"
+  Menu:
+    title: "&aNavigator Menu"
+    size: 9
+    items:
+      - slot: 1
+        material: "DIAMOND_SWORD"
+        name: "&bTeleport to Arena"
+        action: "teleport_arena"
+        amount: 1
+
+      - slot: 2
+        material: "ENDER_PEARL"
+        name: "&dTeleport to Spawn"
+        action: "/hub"
+        amount: 1
+
+      - slot: 3
+        material: "BOOK"
+        name: "&cOpen Help Menu"
+        action: "/help"
+        amount: 1
+
+
+Hotbar:
+  items:
+    - slot: 0
+      material: "DIAMOND_SWORD"
+      name: "&bSpecial Sword"
+      action: "teleport_arena"
+      immovable: true
+
+    - slot: 1
+      material: "GOLDEN_APPLE"
+      name: "&6Golden Apple"
+      action: "/feed"
+      immovable: false
+
+    - slot: 4
+      material: "COMPASS"
+      name: "&bNavigator"
+      action: "openNavigatorMenu"
+      immovable: true

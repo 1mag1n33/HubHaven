@@ -1,7 +1,6 @@
 package com.github._1mag1n33dev.HubHaven.Events;
 
 import com.github._1mag1n33dev.HubHaven.HubHaven;
-import com.github._1mag1n33dev.HubHaven.Utils.Events.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 
@@ -17,14 +16,14 @@ public class EventManager {
     }
 
     public void enableListeners() {
-        registerListener("PlayerJoin", new PlayerJoin());
-        registerListener("CompassEvent", new CompassEvent());
-        registerListener("MenuListener", new MenuListener());
+        registerListener("MenuListener", new MenuListener(plugin));
+        registerListener("HotbarEventListener", new HotbarEventListener(plugin));
+        registerListener("PlayerJoin", new PlayerJoin(plugin));
+        registerListener("itemUseListener", new ItemUseListener(plugin));
+        registerListener("NPCInteractionListener", new NPCInteractionListener(plugin));
     }
 
-    public void registerListener(String name, Event event) {
-        event.setPlugin(plugin);
-        Listener listener = (Listener) event;
+    public void registerListener(String name, Listener listener) {
         plugin.getServer().getPluginManager().registerEvents(listener, plugin);
         listeners.put(name, listener);
     }

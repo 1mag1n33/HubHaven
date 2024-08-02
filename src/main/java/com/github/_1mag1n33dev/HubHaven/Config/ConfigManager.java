@@ -7,6 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
+import java.util.Map;
 
 public class ConfigManager {
     private final HubHaven hubHaven;
@@ -35,6 +36,18 @@ public class ConfigManager {
 
     public Object getObject(String path) {
         return config.get(path);
+    }
+
+    public List<?> getList(String path) {
+        return config.getList(path);
+    }
+
+    public List<?> getList(String path, List<?> defaultValue) {
+        return config.getList(path, defaultValue);
+    }
+
+    public List<Map<?, ?>> getMapList(String path) {
+        return config.getMapList(path);
     }
 
     public List<String> getStringList(String path) {

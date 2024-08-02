@@ -5,7 +5,6 @@ import org.bukkit.Location;
 import org.bukkit.World;
 
 import java.sql.*;
-import java.util.logging.Level;
 
 public class DatabaseManager {
     private Connection connection;
