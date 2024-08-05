@@ -7,11 +7,11 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-public class HotbarEventListener extends AbstractEvent {
+public class HotbarListener extends AbstractEvent {
 
     private final HotbarUtils hotbarUtils;
 
-    public HotbarEventListener(HubHaven plugin) {
+    public HotbarListener(HubHaven plugin) {
         super.setPlugin(plugin);
         this.hotbarUtils = new HotbarUtils(plugin);
     }

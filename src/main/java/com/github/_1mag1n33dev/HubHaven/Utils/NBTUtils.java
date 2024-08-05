@@ -1,6 +1,7 @@
 package com.github._1mag1n33dev.HubHaven.Utils;
 
 import net.minecraft.server.v1_8_R3.NBTTagCompound;
+import net.minecraft.server.v1_8_R3.NBTTagString;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_8_R3.block.CraftBlockState;
@@ -130,5 +131,44 @@ public class NBTUtils {
             return "No NBT data found.";
         }
         return tag.toString();
+    }
+
+    public static void setNBTTag(Entity entity, String key, String value) {
+        if (entity == null || key == null || value == null) {
+            System.out.println("Entity or key or value is null in setNBTTag");
+            return;
+        }
+
+        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity) entity).getHandle();
+        NBTTagCompound tag = new NBTTagCompound();
+        nmsEntity.c(tag);
+        tag.set(key, new NBTTagString(value));
+        nmsEntity.f(tag);
+    }
+
+    public static boolean hasNBTTag(Entity entity, String key) {
+        if (entity == null || key == null) {
+            System.out.println("Entity or key is null in hasNBTTag");
+            return false;
+        }
+
+        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity) entity).getHandle();
+        NBTTagCompound tag = new NBTTagCompound();
+        nmsEntity.c(tag);
+
+        return tag.hasKey(key);
+    }
+
+    public static String getNBTTag(Entity entity, String key) {
+        if (entity == null || key == null) {
+            System.out.println("Entity or key is null in getNBTTag");
+            return null;
+        }
+
+        net.minecraft.server.v1_8_R3.Entity nmsEntity = ((CraftEntity) entity).getHandle();
+        NBTTagCompound tag = new NBTTagCompound();
+        nmsEntity.c(tag);
+
+        return tag.hasKey(key) ? tag.getString(key) : null;
     }
 }

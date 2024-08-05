@@ -28,8 +28,6 @@ Use NPCs for various purposes like teleportation to different game modes, provid
 8. Announcements
 Periodic announcements to inform players about events, updates, or server news.
 
-9. Server Selector GUI
-Create a GUI for players to select different game modes or servers.
-
 10. Daily Rewards
 Offer daily rewards for players who log in to the hub each day.
+

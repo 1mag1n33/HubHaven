@@ -1,9 +1,7 @@
-package com.github._1mag1n33dev.HubHaven.NMS.V1_8;
+package com.github._1mag1n33dev.HubHaven.NMS.V1_8.network;
 
 import com.github._1mag1n33dev.HubHaven.HubHaven;
-import com.github._1mag1n33dev.HubHaven.NMS.common.PacketManager;
-import com.github._1mag1n33dev.HubHaven.NMS.common.npc.NPCManager;
-import com.github._1mag1n33dev.HubHaven.NMS.common.npc.NPCRegistry;
+import com.github._1mag1n33dev.HubHavenApi.network.PacketManager;
 import net.minecraft.server.v1_8_R3.Packet;
 import net.minecraft.server.v1_8_R3.PlayerConnection;
 import org.bukkit.Bukkit;
@@ -36,8 +34,4 @@ public class PacketManagerV1_8 implements PacketManager {
         ((org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
     }
 
-    @Override
-    public NPCManager getNPCManager() {
-        return new NPCManagerV1_8(plugin);
-    }
 }

@@ -4,18 +4,17 @@ import com.github._1mag1n33dev.HubHaven.HubHaven;
 import com.github._1mag1n33dev.HubHaven.Utils.Events.AbstractEvent;
 import com.github._1mag1n33dev.HubHaven.Utils.HotbarUtils;
 import com.github._1mag1n33dev.HubHaven.Utils.NBTUtils;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class PlayerJoin extends AbstractEvent {
+public class PlayerJoinListener extends AbstractEvent {
 
     private final HotbarUtils hotbarUtils;
 
-    public PlayerJoin(HubHaven plugin) {
+    public PlayerJoinListener(HubHaven plugin) {
         super.setPlugin(plugin);
         this.hotbarUtils = new HotbarUtils(plugin);
     }

@@ -17,8 +17,8 @@ public class EventManager {
 
     public void enableListeners() {
         registerListener("MenuListener", new MenuListener(plugin));
-        registerListener("HotbarEventListener", new HotbarEventListener(plugin));
-        registerListener("PlayerJoin", new PlayerJoin(plugin));
+        registerListener("HotbarEventListener", new HotbarListener(plugin));
+        registerListener("PlayerJoin", new PlayerJoinListener(plugin));
         registerListener("itemUseListener", new ItemUseListener(plugin));
         registerListener("NPCInteractionListener", new NPCInteractionListener(plugin));
     }

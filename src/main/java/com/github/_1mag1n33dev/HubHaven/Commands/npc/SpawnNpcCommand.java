@@ -1,32 +1,58 @@
 package com.github._1mag1n33dev.HubHaven.Commands.npc;
 
-import com.github._1mag1n33dev.HubHaven.NMS.common.npc.NPCManager;
 import com.github._1mag1n33dev.HubHaven.Utils.commands.AbstractSubCommand;
 import com.github._1mag1n33dev.HubHaven.Utils.commands.CommandType;
+import com.github._1mag1n33dev.HubHavenApi.npc.EntityRegistry;
+import com.github._1mag1n33dev.HubHavenApi.npc.NPC;
+import net.minecraft.server.v1_8_R3.MinecraftServer;
+import net.minecraft.server.v1_8_R3.WorldServer;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
+import org.bukkit.craftbukkit.v1_8_R3.CraftServer;
+import org.bukkit.craftbukkit.v1_8_R3.CraftWorld;
 import org.bukkit.entity.Player;
 
+import java.nio.Buffer;
+import java.util.Set;
+
 public class SpawnNpcCommand extends AbstractSubCommand {
+
     @Override
     public boolean execute(CommandSender sender, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Only players can use this command.");
+            sender.sendMessage("This command can only be used by players.");
             return true;
         }
 
-        if (args.length < 1) {
-            sender.sendMessage("Usage: /hh spawnnpc <name>");
-            return true;
-        }
-
-        String name = args[1];
         Player player = (Player) sender;
 
-        NPCManager npcManager = plugin.getPacketManager().getNPCManager();
-        npcManager.createNPC(name, player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ());
+        if (args.length < 3) {
+            player.sendMessage("Usage: /hubhaven spawnnpc <type> <name>");
+            return true;
+        }
 
-        player.sendMessage("NPC created: " + name);
+        String type = args[1];
+        String name = args[2];
+        Location location = player.getLocation();
+
+
+        Set<String> validTypes = EntityRegistry.getTypes();
+        if (!validTypes.contains(type)) {
+            player.sendMessage("Invalid NPC type. Valid types are: " + String.join(", ", validTypes));
+            return true;
+        }
+        MinecraftServer minecraftServer = ((CraftServer) Bukkit.getServer()).getServer();
+        WorldServer worldServer = ((CraftWorld) player.getWorld()).getHandle();
+
+        NPC npc = plugin.getNPCManager().createNPC(type, minecraftServer, worldServer);
+        if (npc != null) {
+            npc.spawn(location, name);
+            player.sendMessage("Spawned NPC: " + name + " of type " + type + " at your location.");
+        } else {
+            player.sendMessage("Failed to spawn NPC. Check the type and try again.");
+        }
+
         return true;
     }
 
